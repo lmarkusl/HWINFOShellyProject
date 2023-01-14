@@ -37,7 +37,6 @@ namespace HWLuxxShellyProject
 
             var response = client.Execute(new RestRequest());
             dynamic obj = JsonConvert.DeserializeObject<dynamic>(response.Content);
-            System.Threading.Thread.Sleep(200);
             Power = obj.meters[0].power;
         }
 

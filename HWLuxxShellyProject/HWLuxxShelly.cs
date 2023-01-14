@@ -8,6 +8,17 @@ namespace HWLuxxShellyProject
         public HWLuxxShelly()
         {
             InitializeComponent();
+            textBox1.Text = HWLuxxShellyProject.Properties.Settings1.Default.url;
+            valueMSupdate.Text = HWLuxxShellyProject.Properties.Settings1.Default.updateTime.ToString();
+            textBox2.Text = HWLuxxShellyProject.Properties.Settings1.Default.nameReg;
+            RunStart.Checked = HWLuxxShellyProject.Properties.Settings1.Default.startUpRun;
+
+
+            //if (RunStart.Checked.Equals(true))
+            //{
+            //startBtn.PerformClick();
+            //}
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -70,6 +81,7 @@ namespace HWLuxxShellyProject
                     //
                     shelly.refresh();
                     key.SetValue("Value", shelly.PowerGet, RegistryValueKind.DWord);
+                    System.Threading.Thread.Sleep(200);
 
                     if (_canceller.Token.IsCancellationRequested)
                         break;
@@ -88,12 +100,77 @@ namespace HWLuxxShellyProject
         }
 
 
+        private void Form1_Shown(Object sender, EventArgs e)
+        {
+            if (RunStart.Checked.Equals(true))
+            {
+                startBtn.PerformClick();
+            }
+
+        }
+
         private void button1_Click_1(object sender, EventArgs e)
         {
             _canceller.Cancel();
         }
 
         private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void d_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+
+            HWLuxxShellyProject.Properties.Settings1.Default.url = textBox1.Text;
+            HWLuxxShellyProject.Properties.Settings1.Default.updateTime = Int32.Parse(valueMSupdate.Text);
+            HWLuxxShellyProject.Properties.Settings1.Default.nameReg = textBox2.Text;
+            HWLuxxShellyProject.Properties.Settings1.Default.startUpRun = RunStart.Checked;
+
+            HWLuxxShellyProject.Properties.Settings1.Default.Save();
+
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
 
         }
