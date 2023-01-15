@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HWLuxxShelly));
             this.clearBtn = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.adresstitle = new System.Windows.Forms.Label();
@@ -40,6 +42,7 @@
             this.saveButton = new System.Windows.Forms.Button();
             this.RunStart = new System.Windows.Forms.CheckBox();
             this.RunOnStart = new System.Windows.Forms.GroupBox();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.RunOnStart.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -162,11 +165,18 @@
             this.RunOnStart.Text = "Startup Running";
             this.RunOnStart.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            // 
             // HWLuxxShelly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(316, 334);
+            this.ClientSize = new System.Drawing.Size(309, 334);
             this.Controls.Add(this.RunOnStart);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.updatemstitle);
@@ -182,6 +192,7 @@
             this.Text = "ShellyBridgeHWINFO";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Shown += new System.EventHandler(this.Form1_Shown);
+            this.Resize += new System.EventHandler(this.Form1_Resize);
             this.RunOnStart.ResumeLayout(false);
             this.RunOnStart.PerformLayout();
             this.ResumeLayout(false);
@@ -203,5 +214,6 @@
         private Button saveButton;
         private CheckBox RunStart;
         private GroupBox RunOnStart;
+        private NotifyIcon notifyIcon1;
     }
 }

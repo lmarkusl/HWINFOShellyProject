@@ -1,4 +1,5 @@
 using Microsoft.Win32;
+using System.Windows.Forms;
 
 namespace HWLuxxShellyProject
 {
@@ -100,6 +101,20 @@ namespace HWLuxxShellyProject
         }
 
 
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            //if the form is minimized  
+            //hide it from the task bar  
+            //and show the system tray icon (represented by the NotifyIcon control)  
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                Hide();
+                notifyIcon1.Visible = true;
+            }
+        }
+
+
+
         private void Form1_Shown(Object sender, EventArgs e)
         {
             if (RunStart.Checked.Equals(true))
@@ -154,7 +169,6 @@ namespace HWLuxxShellyProject
             HWLuxxShellyProject.Properties.Settings1.Default.updateTime = Int32.Parse(valueMSupdate.Text);
             HWLuxxShellyProject.Properties.Settings1.Default.nameReg = textBox2.Text;
             HWLuxxShellyProject.Properties.Settings1.Default.startUpRun = RunStart.Checked;
-
             HWLuxxShellyProject.Properties.Settings1.Default.Save();
 
 
@@ -173,6 +187,13 @@ namespace HWLuxxShellyProject
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Show();
+            this.WindowState = FormWindowState.Normal;
+            notifyIcon1.Visible = false;
         }
     }
 }
