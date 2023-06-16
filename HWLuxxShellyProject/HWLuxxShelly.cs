@@ -70,7 +70,7 @@ namespace HWLuxxShellyProject
             _canceller = new CancellationTokenSource();
 
             // Update the IP and add /status
-            UpdatePower shelly = new UpdatePower(textBox1.Text);
+            UpdatePower shelly = new UpdatePower(textBox1.Text, rb_plusplugs.Checked);
 
             await Task.Run(() =>
             {
@@ -194,6 +194,21 @@ namespace HWLuxxShellyProject
             Show();
             this.WindowState = FormWindowState.Normal;
             notifyIcon1.Visible = false;
+        }
+
+        private void groupBox1_Enter_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rb_plugS_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -43,7 +43,11 @@
             this.RunStart = new System.Windows.Forms.CheckBox();
             this.RunOnStart = new System.Windows.Forms.GroupBox();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rb_plusplugs = new System.Windows.Forms.RadioButton();
+            this.rb_plugS = new System.Windows.Forms.RadioButton();
             this.RunOnStart.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // clearBtn
@@ -172,11 +176,48 @@
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rb_plusplugs);
+            this.groupBox1.Controls.Add(this.rb_plugS);
+            this.groupBox1.Location = new System.Drawing.Point(28, 313);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(149, 103);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Which Shelly?";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter_1);
+            // 
+            // rb_plusplugs
+            // 
+            this.rb_plusplugs.AutoSize = true;
+            this.rb_plusplugs.Location = new System.Drawing.Point(16, 59);
+            this.rb_plusplugs.Name = "rb_plusplugs";
+            this.rb_plusplugs.Size = new System.Drawing.Size(117, 19);
+            this.rb_plusplugs.TabIndex = 1;
+            this.rb_plusplugs.Text = "Shelly Plus Plug S";
+            this.rb_plusplugs.UseVisualStyleBackColor = true;
+            this.rb_plusplugs.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            // 
+            // rb_plugS
+            // 
+            this.rb_plugS.AutoSize = true;
+            this.rb_plugS.Checked = true;
+            this.rb_plugS.Location = new System.Drawing.Point(16, 34);
+            this.rb_plugS.Name = "rb_plugS";
+            this.rb_plugS.Size = new System.Drawing.Size(92, 19);
+            this.rb_plugS.TabIndex = 0;
+            this.rb_plugS.TabStop = true;
+            this.rb_plugS.Text = "Shelly Plug S";
+            this.rb_plugS.UseVisualStyleBackColor = true;
+            this.rb_plugS.CheckedChanged += new System.EventHandler(this.rb_plugS_CheckedChanged);
+            // 
             // HWLuxxShelly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(309, 334);
+            this.ClientSize = new System.Drawing.Size(309, 485);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.RunOnStart);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.updatemstitle);
@@ -195,6 +236,8 @@
             this.Resize += new System.EventHandler(this.Form1_Resize);
             this.RunOnStart.ResumeLayout(false);
             this.RunOnStart.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,5 +258,8 @@
         private CheckBox RunStart;
         private GroupBox RunOnStart;
         private NotifyIcon notifyIcon1;
+        private GroupBox groupBox1;
+        private RadioButton rb_plusplugs;
+        private RadioButton rb_plugS;
     }
 }
